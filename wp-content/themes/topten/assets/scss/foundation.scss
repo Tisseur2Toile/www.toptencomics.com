@@ -21,7 +21,7 @@
 @import 'font-awesome';
 @import 'motion-ui';
 
-// Foundation global styles 
+// Foundation global styles
 @include foundation-global-styles;
 
 // Individual foundation components
@@ -71,6 +71,7 @@
 
 // Modules
 @import "modules/topbar";
+@import "modules/formregister";
 @import "modules/footer";
 @import "modules/sidebar";
 
