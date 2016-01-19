@@ -1,4 +1,5 @@
 <?php
+Ici une ligne qui marche pas...
 /**
  * The template for displaying archive pages
  *
