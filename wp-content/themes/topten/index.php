@@ -18,7 +18,31 @@ get_header(); ?>
 
 <div id="page" role="main">
 	<article class="main-content">
-	<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) :
+
+
+
+		if(is_user_logged_in())
+		{
+			echo "T'es connecté";
+		}
+		else
+		{
+			echo do_shortcode("[wpum_login_form]");
+			wp_login_form(
+				array(
+					'remember'       	=> false,
+					'redirect'			=> home_url('/?cat=1')
+				)
+			);
+			?>
+			<a href="<?php echo site_url('wp-login.php?action=register', 'login_post'); ?>">S'enregistrer</a>
+			<?php
+		}
+
+
+
+		?>
 
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
