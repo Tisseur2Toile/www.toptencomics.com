@@ -11,7 +11,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('small-12 medium-6 large-3 columns end blogpost-entry'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('small-2 columns end blogpost-entry'); ?>>
 	<header>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php foundationpress_entry_meta(); ?>

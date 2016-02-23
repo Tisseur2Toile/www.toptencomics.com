@@ -40,6 +40,8 @@ get_header(); ?>
 			<?php
 		}
 
+		$test = file_get_contents('http://gateway.marvel.com/v1/public/comics?series=1991&apikey=ba66c86c420e7ca36eaec55044792546');
+		var_dump($test);
 
 
 		?>
