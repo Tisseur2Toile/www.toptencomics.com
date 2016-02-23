@@ -26,11 +26,14 @@ get_header(); ?>
 			<a href="#" class="button">Incription</a>
 			<a href="#" class="button">Connexion</a>
 		</div>
+		<div class="resultats">
+			
+		</div>
 
 
 
 
-	
+
 
 	</div>
 

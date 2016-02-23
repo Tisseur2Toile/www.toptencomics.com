@@ -8,6 +8,7 @@
   "dependencies": {
     "foundation-sites": "~6.1.0",
     "motion-ui" : "~1.1.0",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.4.0",
+    "md5": "~0.3.0"
   }
 }
