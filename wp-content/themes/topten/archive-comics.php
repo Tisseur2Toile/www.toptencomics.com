@@ -18,15 +18,13 @@
 
 get_header(); ?>
 
-<div id="page" role="main" style="background: #F00;">
-	<div class="row">
-
-
+<div id="page" role="main" style="background: #00F;">
+	<div class="main-content">
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', get_post_format() ); ?>
+			<?php get_template_part( 'content', 'comics' ); ?>
 		<?php endwhile; ?>
 
 		<?php else : ?>

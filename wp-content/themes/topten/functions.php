@@ -45,15 +45,7 @@ require_once( 'library/custom-nav.php' );
 /** Change WP's sticky post class */
 require_once( 'library/sticky-posts.php' );
 
+require_once( 'library/custom-post-types.php' );
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
-
-
-add_filter('wpum_login_shortcode_args', 'my_args', $args);
-function my_args($args)
-{
-    //var_dump($args);
-    $args['label_username'] = "";
-    $args['remember'] = false;
-    return $args;
-}
