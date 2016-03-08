@@ -18,6 +18,9 @@
  <div id="page" role="main">
 
  <?php do_action( 'foundationpress_before_content' ); ?>
+ <div class="resultats">
+
+ </div>
  <?php while ( have_posts() ) : the_post(); ?>
    <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
        <header>

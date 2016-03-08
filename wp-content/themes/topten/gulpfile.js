@@ -54,7 +54,8 @@ var PATHS = {
     //'assets/components/foundation-sites/js/foundation.tooltip.js',
 
     'assets/components/owl.carousel/dist/owl.carousel.js',
-    'assets/components/js-md5/src/md5.js',
+    'assets/components/md5/src/md5.js',
+	'assets/components/mustache.js/mustache.js',
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',
 
