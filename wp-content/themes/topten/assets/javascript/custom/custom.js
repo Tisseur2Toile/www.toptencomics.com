@@ -28,6 +28,7 @@ var marvelAPI = {
 			hash: md5(myTs+this._PRV_KEY+this._API_KEY),
 		};
 		var url = this.constructURL(method, params);
+		console.log(url);
 		var data = this.getData(url, method);
 	},
 
@@ -74,7 +75,7 @@ console.log(marvelAPI._URL);
 
 $(function() {
 
-	$('.myClick').on('click', function(e) {
+	$('#searchsubmit').on('click', function(e) {
 		e.preventDefault();
 		marvelAPI.series();
 	});

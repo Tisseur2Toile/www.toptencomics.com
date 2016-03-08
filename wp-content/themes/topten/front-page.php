@@ -25,8 +25,6 @@ get_header(); ?>
 			<?php get_search_form(); ?>
 			<a href="#" class="button">Incription</a>
 			<a href="#" class="button">Connexion</a>
-			<br><br><br>
-			<a href="#" class="myClick">YEAH...</a>
 		</div>
 		<div class="resultats">
 
