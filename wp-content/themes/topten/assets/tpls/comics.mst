@@ -1,8 +1,8 @@
 {{#bidule}}
 <div class="small-3 columns">
-	<a href="/series/#{{id}}">
+	<a href="/comics/#{{id}}">
 		<img src="{{thumbnail.path}}.jpg">
-		<h3>{{title}}</h3>
+		<h3>///{{title}}</h3>
 	</a>
 </div>
 {{/bidule}}

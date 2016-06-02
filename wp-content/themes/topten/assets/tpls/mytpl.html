@@ -1,0 +1,31 @@
+<script id="series" type="text/html">
+	{{#bidule}}
+	<div class="small-3 columns">
+		<a href="/series/#{{id}}">
+			<img src="{{thumbnail.path}}.jpg">
+			<h3>{{title}}</h3>
+		</a>
+	</div>
+	{{/bidule}}
+</script>
+
+<script id="comics" type="text/html">
+	{{#bidule}}
+	<div class="small-3 columns">
+		<a href="/series/#comics{{id}}" class="comicslink">
+			<img src="{{thumbnail.path}}.jpg">
+			<h3>{{title}}</h3>
+		</a>
+	</div>
+	{{/bidule}}
+</script>
+
+<script id="single" type="text/html">
+	{{#bidule}}
+	<div class="small-3 columns">
+		<img src="{{thumbnail.path}}.jpg">
+		<h3>{{title}}</h3>
+		<p>{{description}}</p>
+	</div>
+	{{/bidule}}
+</script>

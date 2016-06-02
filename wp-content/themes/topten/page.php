@@ -19,7 +19,9 @@
 
  <?php do_action( 'foundationpress_before_content' ); ?>
  <div class="resultats">
-
+	 <div class="">
+	 	<img src="<?= _URL_IMGS; ?>load.svg" alt="" />
+	 </div>
  </div>
  <?php while ( have_posts() ) : the_post(); ?>
    <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">

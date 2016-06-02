@@ -49,3 +49,5 @@ require_once( 'library/custom-post-types.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
+
+define('_URL_IMGS', WP_CONTENT_URL.'/themes/topten/assets/images/');

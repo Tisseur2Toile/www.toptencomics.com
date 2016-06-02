@@ -5,11 +5,12 @@ var marvelAPI = {
 	_PATH: "/wp-content/themes/topten/assets/tpls/",
 	results: "",
 
-	series: function() {
+	series: function(terme) {
+		console.log(terme);
 		var method = 'series';
 		var myTs = new Date().getTime();
 		var params = {
-			title: $('#s').val(),
+			title: terme.replace('+', ' '),//$('#s').val(),
 			ts: myTs,
 			apikey: this._API_KEY,
 			hash: md5(myTs+this._PRV_KEY+this._API_KEY),
@@ -28,8 +29,19 @@ var marvelAPI = {
 			hash: md5(myTs+this._PRV_KEY+this._API_KEY),
 		};
 		var url = this.constructURL(method, params);
-		console.log(url);
 		var data = this.getData(url, method);
+	},
+	single: function(idComics) {
+		var method = 'comics';
+		var myTs = new Date().getTime();
+		var params = {
+			ts: myTs,
+			apikey: this._API_KEY,
+			hash: md5(myTs+this._PRV_KEY+this._API_KEY),
+		};
+		var segment = '/'+idComics;
+		var url = this.constructURL(method, params, segment);
+		var data = this.getData(url, 'single');
 	},
 
 	getData: function(url, method) {
@@ -44,11 +56,12 @@ var marvelAPI = {
     		if ( console && console.log ) {
       			//console.log( "Sample of data:", response);//response.data.results[0] );
 				self.results = response;
-				$.get( self._PATH+method+'.mst', function(template) {
-					Mustache.parse(template);
+				$.get( self._PATH+'mytpl.html', function(template) {
+					var currtpl = $(template).filter('#'+method).html();
+					Mustache.parse(currtpl);
 					var myMachin = {};//response.data.results;
 					myMachin.bidule = response.data.results;
-					var rendered = Mustache.render(template, myMachin);
+					var rendered = Mustache.render(currtpl, myMachin);
 					$('.resultats').html(rendered);
   				});
 			}
@@ -59,13 +72,14 @@ var marvelAPI = {
 		return 'ok---';
 	},
 
-	constructURL: function(method, params) {
-		return this._URL+method+'?'+$.param(params);
+	constructURL: function(method, params, segment) {
+		segment = (segment !== undefined) ? segment : '' ;
+		return this._URL+method+segment+'?'+$.param(params);
 	}
 };
 
 
-console.log(marvelAPI._URL);
+//console.log(marvelAPI._URL);
 
 
 
@@ -76,14 +90,44 @@ console.log(marvelAPI._URL);
 $(function() {
 
 	$('#searchsubmit').on('click', function(e) {
-		e.preventDefault();
-		marvelAPI.series();
+		//e.preventDefault();
+		//marvelAPI.series();
 	});
+$('body').on('click', '.comicslink', function(){
+	// Prevent default
+	// apeler ton résultat
+});
 
+	console.log(window.location.search.substr(3));
+
+	if (window.location.search !== "")
+	{
+		//var idSerie = window.location.hash.substr(1);
+		var searchTerm = window.location.search.substr(3);
+		console.log(searchTerm);
+		//var idSerie = window.location.hash.substr(1);
+		marvelAPI.series(searchTerm);
+	}
 	if (window.location.hash !== "")
 	{
-		var idSerie = window.location.hash.substr(1);
-		marvelAPI.comics(idSerie);
+		console.log(window.location.pathname);
+		if (window.location.pathname.indexOf('series') !== -1)
+		{
+			var idSerie = window.location.hash.substr(1);
+			marvelAPI.comics(idSerie);
+		}
+		else
+		{
+			var idComics = window.location.hash.substr(1);
+			marvelAPI.single(idComics);
+
+		}
+
+
+		//var searchTerm = window.location.search.substr(3);
+		//console.log(searchTerm);
+		//var idSerie = window.location.hash.substr(1);
+
 	}
 
 });
